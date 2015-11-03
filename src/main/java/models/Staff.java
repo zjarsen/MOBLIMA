@@ -7,6 +7,9 @@ import org.mongodb.morphia.annotations.Entity;
  */
 @Entity("staffs")
 public class Staff extends User {
+    public Staff() {
+    }
+
     public Staff(String username, String password) {
         super(username, password);
     }

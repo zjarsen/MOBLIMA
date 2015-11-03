@@ -2,6 +2,7 @@ package views;
 
 import controllers.LoginController;
 import models.Customer;
+import models.Staff;
 
 import java.util.Scanner;
 
@@ -26,12 +27,19 @@ public class Login {
         System.out.println("Please Enter your password:");
         String password = sc.nextLine();
         LoginController loginController = new LoginController();
-        Customer customer = (Customer)loginController.doLogin(username, password);
+        Object user = loginController.doLogin(username, password);
 
-        if (customer == null) {
+        if (user == null) {
             System.out.println("login failed. Check your username or password and retry");
         } else {
             System.out.println("To be continued");
+            if (user instanceof Customer) {
+                System.out.println("is a customer");
+            }
+
+            if (user instanceof Staff) {
+                System.out.println("is a staff");
+            }
         }
     }
 }

@@ -3,7 +3,7 @@ import com.mongodb.MongoClient;
 import models.Customer;
 import org.mongodb.morphia.Datastore;
 import org.mongodb.morphia.Morphia;
-
+import models.Staff;
 import java.util.List;
 
 /**
@@ -23,6 +23,17 @@ public class LoginController {
             if (existingCustomers.get(i).getUsername().equals(username)) {
                 if (existingCustomers.get(i).getPassword().equals(password)) {
                     return existingCustomers.get(i);
+                }
+            }
+        }
+
+        List<Staff> existingStaffs = datastore.createQuery(Staff.class).asList();
+        System.out.println(existingStaffs.size());
+        for (int i = 0; i < existingStaffs.size(); i++) {
+            System.out.println(existingStaffs.get(i).getUsername());
+            if (existingStaffs.get(i).getUsername().equals(username)) {
+                if (existingStaffs.get(i).getPassword().equals(password)) {
+                    return existingStaffs.get(i);
                 }
             }
         }
