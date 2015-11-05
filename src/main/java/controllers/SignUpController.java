@@ -6,6 +6,10 @@ import org.mongodb.morphia.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.LogManager;
+
+import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
 
 /**
  * Created by zjarsen on 3/11/15.
@@ -15,6 +19,8 @@ public class SignUpController {
     }
 
     public void saveNewCustomer(Customer customer) {
+
+        LogManager.getLogManager().reset();
 
         Morphia morphia = new Morphia();
 

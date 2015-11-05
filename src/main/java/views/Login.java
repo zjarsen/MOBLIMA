@@ -20,7 +20,7 @@ public class Login {
     }
 
     public void doLogin(){
-        System.out.println("\n");
+        System.out.println("");
         Scanner sc = new Scanner(System.in);
         System.out.println("Please Enter your username:");
         String username = sc.nextLine();
@@ -30,15 +30,18 @@ public class Login {
         Object user = loginController.doLogin(username, password);
 
         if (user == null) {
+            System.out.println("");
             System.out.println("login failed. Check your username or password and retry");
+            System.out.println("");
+            System.out.println("");
         } else {
-            System.out.println("To be continued");
             if (user instanceof Customer) {
                 System.out.println("is a customer");
             }
 
             if (user instanceof Staff) {
-                System.out.println("is a staff");
+                StaffView staffView = StaffView.getStaffView();
+                staffView.showStaffView((Staff)user);
             }
         }
     }

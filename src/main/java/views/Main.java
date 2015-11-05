@@ -20,8 +20,8 @@ public class Main {
     public void enterMain() {
         Scanner sc = new Scanner(System.in);
         while(true){
-            System.out.println("welcome to MOBLIMA");
             System.out.println("<<<<< Main >>>>>");
+            System.out.println("welcome to MOBLIMA");
             System.out.println("Enter the index to choose from the following options");
             System.out.println("1. Login");
             System.out.println("2. Sign up");
