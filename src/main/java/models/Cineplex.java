@@ -6,7 +6,7 @@ import org.mongodb.morphia.annotations.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity("showTimes")
+@Entity("cineplexes")
 /**
  * Created by zjarsen on 2/11/15.
  */
@@ -15,9 +15,7 @@ public class Cineplex {
     private ObjectId id;
     private String name;
     private String location;
-
-    @Reference
-    private List<Cinema> hasCinemas = new ArrayList<Cinema>();
+    private List<ObjectId> hasCinemaId = new ArrayList<ObjectId>();
 
     public Cineplex() {
     }
@@ -25,6 +23,7 @@ public class Cineplex {
     public Cineplex(String name, String location) {
         this.name = name;
         this.location = location;
+        this.hasCinemaId = new ArrayList<ObjectId>();
     }
 
     public String getName() {
@@ -35,10 +34,15 @@ public class Cineplex {
         return location;
     }
 
-    public List<Cinema> getHasCinemas() {
-        return hasCinemas;
+    public List<ObjectId> getHasCinemaId() {
+        return hasCinemaId;
     }
-////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public ObjectId getId() {
+        return id;
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
     public void setName(String name) {
         this.name = name;
     }
@@ -47,7 +51,11 @@ public class Cineplex {
         this.location = location;
     }
 
-    public void setHasCinemas(List<Cinema> hasCinemas) {
-        this.hasCinemas = hasCinemas;
+    public void setHasCinemaId(List<ObjectId> hasCinemaId) {
+        this.hasCinemaId = hasCinemaId;
+    }
+
+    public void addCinemaId(ObjectId objectId) {
+        this.hasCinemaId.add(objectId);
     }
 }

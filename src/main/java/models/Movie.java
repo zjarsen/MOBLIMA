@@ -23,15 +23,14 @@ public class Movie {
     private double base_price;
     private String type;
     private int length;
-    @Reference
-    private List<ShowTime> hasShowTimes = new ArrayList<ShowTime>();
-    @Reference
-    private List<Review> hasReviews = new ArrayList<Review>();
+    private double discountRate;
+    private List<ObjectId> hasShowTimes = new ArrayList<ObjectId>();
+    private List<ObjectId> hasReviews = new ArrayList<ObjectId>();
 
     public Movie() {
     }
 
-    public Movie(String title, String descripion, int status, String director, int content_rating, double base_price, String type, int length) {
+    public Movie(String title, String descripion, int status, String director, int content_rating, double base_price, String type, int length, double discountRate) {
         this.title = title;
         this.descripion = descripion;
         this.status = status;
@@ -40,6 +39,12 @@ public class Movie {
         this.base_price = base_price;
         this.type = type;
         this.length = length;
+        this.discountRate = discountRate;
+        this.average_rating = 0;
+    }
+
+    public ObjectId getId() {
+        return id;
     }
 
     public String getTitle() {
@@ -78,14 +83,22 @@ public class Movie {
         return length;
     }
 
-    public List<ShowTime> getHasShowTimes() {
+    public double getDiscountRate() {
+        return discountRate;
+    }
+
+    public List<ObjectId> getHasShowTimes() {
         return hasShowTimes;
     }
 
-    public List<Review> getHasReviews() {
+    public List<ObjectId> getHasReviews() {
         return hasReviews;
     }
-////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public void setId(ObjectId id) {
+        this.id = id;
+    }
+
     public void setTitle(String title) {
         this.title = title;
     }
@@ -122,11 +135,23 @@ public class Movie {
         this.length = length;
     }
 
-    public void setHasShowTimes(List<ShowTime> hasShowTimes) {
+    public void setDiscountRate(double discountRate) {
+        this.discountRate = discountRate;
+    }
+
+    public void setHasShowTimes(List<ObjectId> hasShowTimes) {
         this.hasShowTimes = hasShowTimes;
     }
 
-    public void setHasReviews(List<Review> hasReviews) {
+    public void setHasReviews(List<ObjectId> hasReviews) {
         this.hasReviews = hasReviews;
+    }
+
+    public void addShowTime(ObjectId showTime) {
+        this.hasShowTimes.add(showTime);
+    }
+
+    public void addReviews(ObjectId review) {
+        this.hasReviews.add(review);
     }
 }

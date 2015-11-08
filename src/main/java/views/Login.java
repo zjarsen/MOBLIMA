@@ -36,7 +36,8 @@ public class Login {
             System.out.println("");
         } else {
             if (user instanceof Customer) {
-                System.out.println("is a customer");
+                CustomerView customerView = CustomerView.getCustomerView();
+                customerView.showCustomerView((Customer)user);
             }
 
             if (user instanceof Staff) {

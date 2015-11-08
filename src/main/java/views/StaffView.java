@@ -38,14 +38,15 @@ public class StaffView {
             System.out.println("");
             switch (choice) {
                 case 1:
-                    while (choiceForListing != 3) {
+                    while (choiceForListing != 4) {
                         System.out.println("");
                         System.out.println("");
                         System.out.println("<<<<< Admin-Listing >>>>>");
                         System.out.println("Enter the index to choose from the following options");
                         System.out.println("1. Create a new movie listing");
                         System.out.println("2. Update a movie listing");
-                        System.out.println("3. Back\n");
+                        System.out.println("3. Configure settings");
+                        System.out.println("4. Back\n");
                         System.out.println("Your choice: ");
                         choiceForListing = sc.nextInt();
                         switch (choiceForListing) {
@@ -56,6 +57,9 @@ public class StaffView {
                                 staff.updateListing();
                                 break;
                             case 3:
+                                System.out.println("tobecontined");
+                                break;
+                            case 4:
                                 break;
                             default:
                                 System.out.println("wrong choice");

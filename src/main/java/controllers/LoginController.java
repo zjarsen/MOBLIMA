@@ -41,4 +41,17 @@ public class LoginController {
 
         return null;
     }
+
+    public Customer getCustomer(String username) {
+        Morphia morphia = new Morphia();
+        morphia.mapPackage("models");
+        Datastore datastore = morphia.createDatastore(new MongoClient(), "MOBLIMA");
+        List<Customer> customers = datastore.createQuery(Customer.class).asList();
+        for (int i = 0; i < customers.size(); i++) {
+            if (customers.get(i).getUsername().equals(username)) {
+                return customers.get(i);
+            }
+        }
+        return null;
+     }
 }

@@ -12,8 +12,7 @@ import java.util.List;
  */
 public class Customer extends User {
     private int age;
-    @Reference
-    private List<Purchase> hasPurchases = new ArrayList<Purchase>();
+    private List<ObjectId> hasPurchases = new ArrayList<ObjectId>();
 
     public Customer() {
     }
@@ -27,38 +26,19 @@ public class Customer extends User {
         return age;
     }
 
-    /**
-     *
-     * @return
-     */
-    public List<Purchase> getHasPurchases() {
-        return hasPurchases;
-    }
-////////////////////////////////////////////////////////////////////////////////////////////////
-
-    /**
-     *
-     * @param age
-     */
     public void setAge(int age) {
         this.age = age;
     }
 
-    /**
-     *
-     * @param hasPurchases
-     */
-    public void setHasPurchases(List<Purchase> hasPurchases) {
+    public List<ObjectId> getHasPurchases() {
+        return hasPurchases;
+    }
+
+    public void setHasPurchases(List<ObjectId> hasPurchases) {
         this.hasPurchases = hasPurchases;
     }
-    ////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-    @Override
-    public String toString() {
-        return "Customer{" +
-                "age=" + age +
-                "username" + this.getUsername() +
-                '}';
+    public void addPurchase(ObjectId purchaseID) {
+        this.hasPurchases.add(purchaseID);
     }
 }

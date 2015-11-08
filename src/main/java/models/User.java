@@ -24,6 +24,10 @@ public abstract class User {
         this.password = password;
     }
 
+    public ObjectId getId() {
+        return id;
+    }
+
     public String getUsername() {
         return username;
     }

@@ -42,7 +42,7 @@ public class Main {
                     break;
                 case 4:
                     TempAddStuff addStuff = TempAddStuff.getAddStuff();
-                    addStuff.addStaff();
+                    addStuff.addStuff();
                     break;
                 default:
                     System.out.println("wrong choice");

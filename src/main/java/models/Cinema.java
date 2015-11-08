@@ -13,51 +13,63 @@ import java.util.List;
 public class Cinema {
     @Id
     private ObjectId id;
+    private String name;
     private String type;
-    @Reference
-    private Cineplex cineplex;
-    @Reference
-    private List<Seat> hasSeats = new ArrayList<Seat>();
-    @Reference
-    private List<ShowTime> hasShowTime = new ArrayList<ShowTime>();
+    private ObjectId hasCineplexId;
+    private List<ObjectId> hasSeatsId = new ArrayList<ObjectId>();
+    private List<ObjectId> hasShowTimeId = new ArrayList<ObjectId>();
 
     public Cinema() {
     }
 
-    public Cinema(Cineplex cineplex, String type) {
-        this.cineplex = cineplex;
+    public Cinema(String name, String type) {
+        this.name = name;
         this.type = type;
+    }
+
+    public ObjectId getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getType() {
         return type;
     }
 
-    public Cineplex getCineplex() {
-        return cineplex;
-    }
-
-    public List<Seat> getHasSeats() {
-        return hasSeats;
-    }
-
-    public List<ShowTime> getHasShowTime() {
-        return hasShowTime;
-    }
-////////////////////////////////////////////////////////////////////////////////////////////////
     public void setType(String type) {
         this.type = type;
     }
 
-    public void setCineplex(Cineplex cineplex) {
-        this.cineplex = cineplex;
+    public ObjectId getHasCineplexId() {
+        return hasCineplexId;
     }
 
-    public void setHasSeats(List<Seat> hasSeats) {
-        this.hasSeats = hasSeats;
+    public void setHasCineplexId(ObjectId hasCineplexId) {
+        this.hasCineplexId = hasCineplexId;
     }
 
-    public void setHasShowTime(List<ShowTime> hasShowTime) {
-        this.hasShowTime = hasShowTime;
+    public List<ObjectId> getHasSeatsId() {
+        return hasSeatsId;
+    }
+
+    public void setHasSeatsId(List<ObjectId> hasSeatsId) {
+        this.hasSeatsId = hasSeatsId;
+    }
+
+    public void setHasShowTimeId(List<ObjectId> hasShowTimeId) {
+        this.hasShowTimeId = hasShowTimeId;
+    }
+
+    public void addSeatsId(ObjectId objectId) {
+        this.hasSeatsId.add(objectId);
     }
 }
+
+
